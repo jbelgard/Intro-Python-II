@@ -53,18 +53,30 @@ while True:
     print(john.current_room.description)
     myInput = input(f"Which direction do  you want to go?: ")
     if (myInput == 'n'):
-        john.current_room = john.current_room.n_to
+        if hasattr(john.current_room, 'n_to'):
+            john.current_room = john.current_room.n_to
+        else:
+            print("!!!! You Can't Go There! !!!")
     elif (myInput == 'e'):
-        john.current_room = john.current_room.e_to
+        if hasattr(john.current_room, 'e_to'):
+            john.current_room = john.current_room.e_to
+        else:
+            print("!!! You Can't Go There! !!!")
     elif (myInput == 's'):
-        john.current_room = john.current_room.s_to
+        if hasattr(john.current_room, 's_to'):
+            john.current_room = john.current_room.s_to
+        else:
+            print("!!! You Can't Go There! !!!")
     elif (myInput == 'w'):
-        john.current_room = john.current_room.e_to
+        if hasattr(john.current_room, 'w_to'):
+            john.current_room = john.current_room.e_to
+        else:
+            print("!!! You Can't Go There! !!!")
     elif (myInput == 'q'):
         print(f"Thanks for playing!")
         break
     else:
-        print("You can't go there!")
+        print("!!! You can't go there! !!!")
 
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
